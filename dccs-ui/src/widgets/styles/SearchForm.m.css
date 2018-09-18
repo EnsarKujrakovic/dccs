@@ -1,0 +1,14 @@
+.root {
+  padding: 5px;
+}
+
+.flexmargin {
+  display:flex;
+  margin-left:10px;
+}
+.flex{
+  display:flex;
+}
+.margin{
+  margin-left: 20px;
+}

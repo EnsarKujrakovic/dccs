@@ -1,0 +1,7 @@
+export let formsList = {
+  selectedForm: "",
+  selectedVersion: "",
+  list: [""]
+};
+
+export default formsList;

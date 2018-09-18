@@ -1,0 +1,12 @@
+.root {
+  padding: 5px;
+  margin-bottom: 15px;
+  background-color:#eee;
+}
+
+.width {
+  width: 150px;
+}
+.flex{
+  display:flex;
+}

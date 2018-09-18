@@ -1,0 +1,9 @@
+.label {
+	font-family: 'Arial', serif;
+	color: 'blue';
+	display: inline-block;
+	fload: right;
+}
+.textinputflex {
+  display: flex;
+}

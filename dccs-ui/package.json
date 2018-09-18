@@ -1,0 +1,19 @@
+{
+  "name": "dccs-ui",
+  "version": "1.0.0",
+  "dependencies": {
+    "@dojo/framework": "~3.0.0",
+    "@dojo/themes": "^3.0.1",
+    "@dojo/widgets": "^3.0.0",
+    "jquery": "^3.3.1",
+    "tslib": "~1.8.1"
+  },
+  "devDependencies": {
+    "@dojo/cli-build-app": "~3.0.0",
+    "@dojo/cli-create-theme": "^3.0.0",
+    "@dojo/cli-test-intern": "~3.0.0",
+    "@types/jquery": "^3.3.6",
+    "@types/node": "~9.6.5",
+    "typescript": "~2.6.1"
+  }
+}

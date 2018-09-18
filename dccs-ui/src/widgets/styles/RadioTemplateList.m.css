@@ -1,0 +1,12 @@
+.root {
+  margin-top:10px;
+  margin-bottom:20px;
+  margin-left:20px;
+}
+.flex {
+  display: flex;
+}
+
+.item {
+  margin-top: 5px;
+}

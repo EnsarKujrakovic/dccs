@@ -1,0 +1,14 @@
+.root {
+  margin-left:10px;
+}
+
+.flex{
+  display:flex;
+}
+.margin {
+  margin-right:100px;
+  float:right;
+}
+.red {
+  color:red;
+}
