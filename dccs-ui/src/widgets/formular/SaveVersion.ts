@@ -57,7 +57,7 @@ export class SaveVersion extends WidgetBase
 
 	protected render()//save button for version
 	{
-		return v('div', {classes:[css.root, css.flex]}, [
+		return v('div', {classes:[css.flex]}, [
       w(Button, {
 				key: 'saveVersion',
 				extraClasses:{root: css.margin},

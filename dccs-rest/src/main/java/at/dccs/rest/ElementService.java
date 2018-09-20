@@ -109,13 +109,23 @@ public class ElementService
   		List<Element> elements = form.getElements();
       for(int i = 0; i < elements.size(); i++){
         List<Element> found = em.createNamedQuery("element.exists", Element.class)
-                             .setParameter("id", elements.get(i).getElementId())
                              .setParameter("fN", form.getFormName())
                              .setParameter("fV", form.getFormVersion())
+                             .setParameter("id", elements.get(i).getElementId())
+                             .setParameter("label", elements.get(i).getLabel())
+                             .setParameter("type", elements.get(i).getType())
+                             .setParameter("validation", elements.get(i).getValidation())
                              .getResultList();
         if(found.size() > 0)
         {
-          em.merge(elements.get(i));
+          Element e = found.get(0);
+          e.setFormName(form.getFormName());
+          e.setFormVersion(form.getFormVersion());
+          e.setLabel(elements.get(i).getLabel());
+          e.setType(elements.get(i).getType());
+          e.setValidation(elements.get(i).getValidation());
+          e.setValue(elements.get(i).getValue());
+          em.merge(e);
         } else
         {
           Element e = new Element();

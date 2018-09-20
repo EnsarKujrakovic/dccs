@@ -26,7 +26,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "element.exists", query = "select e from Element e where e.elementId = :id and e.formName = :fN and e.formVersion = :fV order by e.label"),
+        @NamedQuery(name = "element.exists", query = "select e from Element e " + 
+        "where e.formName = :fN and e.formVersion = :fV and ((e.elementId = :id )or" +
+        "(e.label = :label and e.type = :type and e.validation = :validation))"),
         @NamedQuery(name = "element.list", query = "select e from Element e where e.formName = :fN and e.formVersion = :fV order by e.label"),
         @NamedQuery(name = "element.forms", query = "select distinct e.formName from Element e order by e.formName")
 })

@@ -63,6 +63,54 @@ export class SearchForm extends WidgetBase
       }
     });
 	}
+
+  private validation:string  = "";
+  private validate()//validation on template save
+  {
+    if(templateData.formName == "" || templateData.formName == "formName")
+    {
+      this.validation = "Choose a valid form name!";
+      return false;
+    }
+    if(templateData.elements.length<1)
+    {
+      this.validation = "Add at least one element to form!";
+      return false;
+    }  
+    for(let i = 0; i < templateData.elements.length;i++)
+    {
+      if(templateData.elements[i].label == "")
+      {
+        this.validation = "Fill required fields!";
+        return false;
+      }
+    }
+    this.validation = "";
+    return true;
+	}
+  
+  private postForm()//ajax request for saving template
+  {
+    jQuery.ajax({
+      url:"http://localhost:8080/dccs-rest-1.1.0-SNAPSHOT/formular/save",
+      type:"POST",
+      crossDomain : true,
+      async: false,
+      dataType: 'text',
+      contentType: "application/json; charset=utf-8",
+      data: JSON.stringify(templateData),
+      success: function(data, textStatus, jqXHR) {
+        if(jqXHR.status == 201) alert("Saved!");
+      },
+      error: function(jqXHR, textStatus, errorThrown){}
+    });
+	}
+
+
+
+
+
+	
 	protected render()
 	{
 		return v('div', {classes:[css.root]}, [
@@ -102,6 +150,20 @@ export class SearchForm extends WidgetBase
         		this.invalidate();
 	      },
       }, [ '+' ]),
+      v('div', {classes:[css.flex]}, [
+        w(Button, {
+				  key: 'saveButton',
+				  extraClasses:{root: css.margin},
+				  onClick: () => {
+				      if(this.validate()){
+		            this.postForm();
+		            this.getForm(this, templateData.formName);
+		          }
+		          this.invalidate()
+	        },
+        }, [ 'Save' ]),
+         v('span',{classes:[css.flex, css.red, css.margin]},[`${this.validation}`])
+		  ])
 		])
 	}
 }
