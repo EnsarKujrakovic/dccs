@@ -29,7 +29,7 @@ import javax.xml.bind.annotation.XmlRootElement;
         @NamedQuery(name = "element.exists", query = "select e from Element e " + 
         "where e.formName = :fN and e.formVersion = :fV and ((e.elementId = :id )or" +
         "(e.label = :label and e.type = :type and e.validation = :validation))"),
-        @NamedQuery(name = "element.list", query = "select e from Element e where e.formName = :fN and e.formVersion = :fV order by e.label"),
+        @NamedQuery(name = "element.list", query = "select e from Element e where e.formName = :fN and e.formVersion = :fV"),
         @NamedQuery(name = "element.forms", query = "select distinct e.formName from Element e order by e.formName")
 })
 @XmlRootElement(name = "element")
